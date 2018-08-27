@@ -36,20 +36,16 @@ catch (IOException e) {
 Api v2 methods are listed in com.duvarapps.bitfinexapi.v2.api.BitfinexApi2 interface.
 ```
 BitfinexApi2 bfx2 = BitfinexFactory2.createClient();
-bfx2.getTradingPair("tBTCUSD", new BitfinexApiCallback<TradingPair>()
-{
+bfx2.getTradingPair("tBTCUSD", new BitfinexApiCallback<TradingPair>() {
     @Override
-    public void onResponse(TradingPair tradingPair, ApiResponse response)
-    {
-        if (response.code() == 200)
-        {
+    public void onResponse(TradingPair tradingPair, ApiResponse response) {
+        if (response.code() == 200) {
             tv1.setText(String.valueOf(tradingPair.getLastPrice()));
         }
     }
 
     @Override
-    public void onError(Throwable t)
-    {
+    public void onError(Throwable t) {
         t.printStackTrace();
     }
 });
